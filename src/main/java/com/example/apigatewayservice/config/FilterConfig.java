@@ -5,6 +5,9 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/*
+* application.yml 에 cloud - gateway - route 설정을 Filter 로 구현.
+* */
 @Configuration
 public class FilterConfig {
   @Bean
