@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 /*
 * application.yml 에 cloud - gateway - route 설정을 Filter 로 구현.
 * */
-@Configuration
+//@Configuration
 public class FilterConfig {
-  @Bean
+//  @Bean
   public RouteLocator gatewayRoutes(RouteLocatorBuilder builder){
     return builder.routes()
         .route(r -> r.path("/first-service/**")

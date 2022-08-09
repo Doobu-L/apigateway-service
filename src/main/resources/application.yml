@@ -10,16 +10,22 @@ eureka:
 spring:
   application:
     name: apigateway-service
-#  cloud:
-#    gateway:
-#      #http://localhost:8080/first-service/welcome 으로 요청이 들어오면
-#      #predicates 를 판별해서 해당 uri로 포워딩.
-#      routes:
-#        - id: first-service
-#          uri: http://localhost:8001/
-#          predicates:
-#            - Path=/first-service/**
-#        - id: second-service
-#          uri: http://localhost:8002/
-#          predicates:
-#            - Path=/second-service/**
+  cloud:
+    gateway:
+      #http://localhost:8080/first-service/welcome 으로 요청이 들어오면
+      #predicates 를 판별해서 해당 uri로 포워딩.
+      routes:
+        - id: first-service
+          uri: http://localhost:8001/
+          predicates:
+            - Path=/first-service/**
+          filters:
+            - AddRequestHeader=first-request, first-requests-header2
+            - AddResponseHeader=first-response, first-response-header2
+        - id: second-service
+          uri: http://localhost:8002/
+          predicates:
+            - Path=/second-service/**
+          filters:
+            - AddRequestHeader=second-request, second-requests-header2
+            - AddResponseHeader=second-response, second-response-header2
