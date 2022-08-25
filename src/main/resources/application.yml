@@ -30,7 +30,12 @@ spring:
           filters:
 #            - AddRequestHeader=second-request, second-requests-header2
 #            - AddResponseHeader=second-response, second-response-header2
-            - CustomFilter
+            - name: CustomFilter
+            - name: LoggingFilter #두개 이상의 필터를 등록 할 때 name: 으로 구분해줘야함
+              args:
+                baseMessage: String Coloud Gateway Logging Filter
+                preLogger: true
+                postLogger: true
       default-filters:
         - name: GlobalFilter
           args:
