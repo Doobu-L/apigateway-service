@@ -31,3 +31,9 @@ spring:
 #            - AddRequestHeader=second-request, second-requests-header2
 #            - AddResponseHeader=second-response, second-response-header2
             - CustomFilter
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: String Coloud Gateway Global Filter
+            preLogger: true
+            postLogger: true
