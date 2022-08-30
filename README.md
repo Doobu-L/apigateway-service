@@ -71,3 +71,27 @@ public class CustomFilter extends AbstractGatewayFilterFactory<CustomFilter.Conf
             baseMessage: Spring ~~~~~
             preLogger: true
             postLogger: true
+            
+
+**Eureka Server**
+
+DiscoveryServer
+
+**Eureka Client**
+
+SpringCloudGateway , first-service , second-service
+
+**LoadBalance**
+
+SpringCloudGateway 에 aplication.yml - eureka client에 
+
+url : lb://{service-name}
+
+를 통해 {service-name} 으로 로드밸런싱을 한다.
+
+
+
+
+## 주문서비스 구성  ##
+![MSA_ORDER_SERVICE](https://user-images.githubusercontent.com/60733417/187461359-3fa41f77-257c-44dd-8083-afb8a09ea863.PNG)
+ 
