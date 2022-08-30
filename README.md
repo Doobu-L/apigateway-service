@@ -105,13 +105,17 @@ url : lb://{service-name}
 
 ## 어플리케이션 APIs ##
 - Catalog Service
+  
   GET /catalog-service/catalogs : 상품 목록 제공
 - User Service
+  
   POST /user-service/users : 사용자 정보 등록
   
   GET /user-service/users : 전체 사용자 조회
   
   GET /user-service/users/{user_id} : 사용자 정보, 주문 내역 조회
 - Order Service
+  
   POST /order-service/users/{user_id/orders : 주문 등록
+  
   GET /order-service/users/{user_id}/orders : 주문 확인
