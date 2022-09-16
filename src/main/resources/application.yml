@@ -15,6 +15,14 @@ spring:
       #http://localhost:8080/first-service/welcome 으로 요청이 들어오면
       #predicates 를 판별해서 해당 uri로 포워딩.
       routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user-service/**
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE
+          predicates:
+            - Path=/catalog-service/**
         - id: first-service
           uri: lb://MY-FIRST-SERVICE
           predicates:
