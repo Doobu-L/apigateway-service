@@ -22,7 +22,7 @@ spring:
             - Method=POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/user-service/(?<segment>,*), \$/{segment}
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
@@ -30,7 +30,7 @@ spring:
             - Method=POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/user-service/(?<segment>,*), \$/{segment}
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
@@ -38,27 +38,27 @@ spring:
             - Method=GET
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/user-service/(?<segment>,*), \$/{segment}
+            - RewritePath=/user-service/(?<segment>.*),/$\{segment}
 
 #            - AddRequestHeader=first-request, first-requests-header2
 #            - AddResponseHeader=first-response, first-response-header2
           #- CustomFilter
-        - id: second-service
-          uri: lb://MY-SECOND-SERVICE
-          predicates:
-            - Path=/second-service/**
-          filters:
-#            - AddRequestHeader=second-request, second-requests-header2
-#            - AddResponseHeader=second-response, second-response-header2
-            - name: CustomFilter
-            - name: LoggingFilter #두개 이상의 필터를 등록 할 때 name: 으로 구분해줘야함
-              args:
-                baseMessage: String Coloud Gateway Logging Filter
-                preLogger: true
-                postLogger: true
-      default-filters:
-        - name: GlobalFilter
-          args:
-            baseMessage: String Coloud Gateway Global Filter
-            preLogger: true
-            postLogger: true
+#        - id: second-service
+#          uri: lb://MY-SECOND-SERVICE
+#          predicates:
+#            - Path=/second-service/**
+#          filters:
+##            - AddRequestHeader=second-request, second-requests-header2
+##            - AddResponseHeader=second-response, second-response-header2
+#            - name: CustomFilter
+#            - name: LoggingFilter #두개 이상의 필터를 등록 할 때 name: 으로 구분해줘야함
+#              args:
+#                baseMessage: String Coloud Gateway Logging Filter
+#                preLogger: true
+#                postLogger: true
+#      default-filters:
+#        - name: GlobalFilter
+#          args:
+#            baseMessage: String Coloud Gateway Global Filter
+#            preLogger: true
+#            postLogger: true
